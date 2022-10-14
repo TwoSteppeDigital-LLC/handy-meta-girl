@@ -22,3 +22,6 @@ a {
 .main-color {
   color: rgb(206, 89, 98);
 }
+.margin0 {
+  margin: 0 !important;
+}

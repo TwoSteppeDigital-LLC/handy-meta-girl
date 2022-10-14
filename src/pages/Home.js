@@ -99,76 +99,85 @@ export default function Home() {
         </section>
         <section>
           <Grid container className="main-content">
-            <Grid item xs={6} className="grid">
-              <Grid container item xs={12} justifyContent="center">
-                <h1>Handy Meta Girls Details</h1>
-                <Grid item xs={7.5}>
-                  <span>
-                    We are artists. We are visionaries. We are here to bring
-                    Handy Meta Girls to planet earth. Our latest collection is
-                    born from unique avatars that have been living rent-free in
-                    our imagination and are ready to make their jump to the
-                    screen. Handy Meta Girls are interested in the construction
-                    industry, the connection of ordinary life with the
-                    metaverse. Find them on the blockchain and discover your
-                    favorite characters. Scroll through our site, pick your NFT
-                    and connect your wallet for a valuable and safe purchase.
-                  </span>
+            <Grid container className="grid">
+              <Grid item xs={6}>
+                <Grid container justifyContent="center">
+                  <h1>Handy Meta Girls Details</h1>
+                  <Grid item xs={7.5}>
+                    <span>
+                      We are artists. We are visionaries. We are here to bring
+                      Handy Meta Girls to planet earth. Our latest collection is
+                      born from unique avatars that have been living rent-free
+                      in our imagination and are ready to make their jump to the
+                      screen. Handy Meta Girls are interested in the
+                      construction industry, the connection of ordinary life
+                      with the metaverse. Find them on the blockchain and
+                      discover your favorite characters. Scroll through our
+                      site, pick your NFT and connect your wallet for a valuable
+                      and safe purchase.
+                    </span>
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-            <Grid item xs={6} className="grid">
-              <img
-                src="../img/IMG-20220822-WA0001.webp"
-                alt="Woman in Swimsuit"
-                className="img-women"
-              />
-            </Grid>
-            <Grid item xs={6} className="grid">
-              <Grid container item xs={12} justifyContent="center" spacing={5}>
-                <h1>Our Founder: Maria</h1>
-                <Grid item xs={7.5}>
-                  <span>
-                    Our amazing founder who is building the Handy Meta Girls has
-                    been working all her life to establish herself within the
-                    space. She is from Ukraine and has spent several years of
-                    her life in the USA and as of now is living in Slovakia with
-                    her family making sure Handy Meta Girls are amazing!
-                  </span>
-                </Grid>
+              <Grid item xs={6}>
+                <img
+                  src="../img/IMG-20220822-WA0001.webp"
+                  alt="Woman in Swimsuit"
+                  className="img-women"
+                />
               </Grid>
             </Grid>
-            <Grid item xs={6} className="grid">
-              <img
-                src="../img/IMG-20220822-WA0002.jpg"
-                alt="founder"
-                className="img-founder"
-              />
+            <Grid container className="grid">
+              <Grid item xs={6}>
+                <Grid container justifyContent="center" spacing={5}>
+                  <h1>Our Founder: Maria</h1>
+                  <Grid item xs={7.5}>
+                    <span>
+                      Our amazing founder who is building the Handy Meta Girls
+                      has been working all her life to establish herself within
+                      the space. She is from Ukraine and has spent several years
+                      of her life in the USA and as of now is living in Slovakia
+                      with her family making sure Handy Meta Girls are amazing!
+                    </span>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={6}>
+                <img
+                  src="../img/IMG-20220822-WA0002.jpg"
+                  alt="founder"
+                  className="img-founder"
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={6} className="grid">
-              <img
-                src="../img/dress-up.png"
-                alt="app"
-                className="img-founder"
-              />
-            </Grid>
-            <Grid item xs={6} className="grid">
-              <Grid container item xs={12} justifyContent="center" spacing={5}>
-                <h1>Handy Meta Girls Game</h1>
-                <Grid item xs={7}>
-                  <span>
-                    Handy Meta Girls game will be the main priority in our
-                    roadmap. Unlike other NFT projects, our goal is to develop
-                    and deliver the game to everyone right before our minting
-                    period.
-                  </span>
-                  <br />
-                  <span>
-                    It is a free-to-play fashion-themed with a mini-racing game
-                    for everyone and holders get special in-game rewards. And by
-                    the way, coins earned from this game can be used in our
-                    E-shop as well!
-                  </span>
+            <Grid container className="grid">
+              <Grid
+                container
+                item
+                xs={4}
+                justifyContent="center"
+                alignItems="center"
+              >
+                <img src="../img/dress-up.png" alt="app" className="img-game" />
+              </Grid>
+              <Grid item xs={8}>
+                <Grid container justifyContent="center" spacing={5}>
+                  <h2>Handy Meta Girls Game</h2>
+                  <Grid item xs={10}>
+                    <span>
+                      Handy Meta Girls game will be the main priority in our
+                      roadmap. Unlike other NFT projects, our goal is to develop
+                      and deliver the game to everyone right before our minting
+                      period.
+                    </span>
+                    <br />
+                    <span>
+                      It is a free-to-play fashion-themed with a mini-racing
+                      game for everyone and holders get special in-game rewards.
+                      And by the way, coins earned from this game can be used in
+                      our E-shop as well!
+                    </span>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
