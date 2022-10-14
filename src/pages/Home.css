@@ -97,6 +97,18 @@ section {
   margin-top: 150px;
   display: inline-block;
 }
+.main-content h2 {
+  line-height: 1.35em;
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 0em;
+  font: normal normal normal 40px/1.35em "rozha one", serif;
+  color: white;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 0;
+  display: inline-block;
+}
 .main-content span {
   line-height: 1.875em;
   font-size: 25px !important;
@@ -116,4 +128,9 @@ section {
   height: 819px;
   object-fit: cover;
   object-position: 50% 50%;
+}
+.img-game {
+  width: 90%;
+  height: 70%;
+  border-radius: 10px;
 }

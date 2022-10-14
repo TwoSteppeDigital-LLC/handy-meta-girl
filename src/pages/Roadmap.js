@@ -64,7 +64,7 @@ export default function RoadMap() {
       <section style={style.section}>
         <Grid container justifyContent="center">
           <Grid container item justifyContent="center">
-            <h1 style={style.h1}>RoadMap</h1>
+            <h1 style={style.h1}>Roadmap</h1>
           </Grid>
           <Grid container justifyContent="center">
             <span style={style.span}>A sneak peak at where we’re heading</span>
