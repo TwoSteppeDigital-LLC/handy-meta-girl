@@ -4,6 +4,8 @@ import Grid from "@mui/material/Grid";
 import Grow from "@mui/material/Grow";
 
 import Popover from "../components/common/Popover";
+import { useOnceEffect } from "../components/common/CustomHook";
+import UserContext from "../components/common/UserContext";
 
 const style = {
   section: {
@@ -39,6 +41,10 @@ const style = {
 };
 
 export default function Faqs() {
+  const userContext = React.useContext(UserContext);
+  useOnceEffect(() => {
+    userContext.setIsMintPage(false);
+  }, []);
   return (
     <Grow in={true}>
       <section style={style.section}>

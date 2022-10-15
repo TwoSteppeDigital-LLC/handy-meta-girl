@@ -11,14 +11,17 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
+import UserContext from "../common/UserContext";
+
 const style = {
   grid: {
     backgroundColor: "#FFD1D1",
-    paddingBottom: "30px",
+    paddingBottom: "10px",
   },
 };
 
 export default function SimpleBottomNavigation() {
+  const userContext = React.useContext(UserContext);
   return (
     <Grid container justifyContent="center" style={style.grid}>
       <Grid container item xs={11} sx={{ marginTop: "70px" }}>
@@ -52,10 +55,22 @@ export default function SimpleBottomNavigation() {
             </Link>
           </Grid>
         </Grid>
-        <Grid container item xs={2} justifyContent={"center"}>
-          <Button variant="contained" color="error">
-            Mint Now
-          </Button>
+        <Grid
+          container
+          item
+          xs={2}
+          justifyContent={"center"}
+          alignItems="center"
+        >
+          {userContext.isMintPage ? (
+            <></>
+          ) : (
+            <Link to="/mint">
+              <Button variant="contained" color="error">
+                Mint Now
+              </Button>
+            </Link>
+          )}
         </Grid>
         <Grid
           container

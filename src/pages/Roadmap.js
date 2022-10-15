@@ -3,6 +3,9 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Grow from "@mui/material/Grow";
 
+import { useOnceEffect } from "../components/common/CustomHook";
+import UserContext from "../components/common/UserContext";
+
 const style = {
   section: {
     backgroundColor: "#FFE3E1",
@@ -59,6 +62,10 @@ const style = {
 };
 
 export default function RoadMap() {
+  const userContext = React.useContext(UserContext);
+  useOnceEffect(() => {
+    userContext.setIsMintPage(false);
+  }, []);
   return (
     <Grow in={true}>
       <section style={style.section}>
