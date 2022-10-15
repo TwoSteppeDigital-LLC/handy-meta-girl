@@ -18,11 +18,17 @@ import "./App.css";
 
 function App() {
   const [isMintPage, setIsMintPage] = useState(false);
+  const [connected, setConnected] = useState(false);
 
   return (
     <div>
       <UserContext.Provider
-        value={{ isMintPage: isMintPage, setIsMintPage: setIsMintPage }}
+        value={{
+          isMintPage: isMintPage,
+          setIsMintPage: setIsMintPage,
+          connected: connected,
+          setConnected: setConnected,
+        }}
       >
         <Router>
           <Header />

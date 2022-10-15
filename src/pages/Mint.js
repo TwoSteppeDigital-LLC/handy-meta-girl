@@ -24,6 +24,9 @@ const style = {
     width: "20%",
     borderRadius: "10px",
   },
+  p: {
+    color: "#ad333c",
+  },
 };
 
 export default function Contact() {
@@ -62,11 +65,27 @@ export default function Contact() {
           <Grid
             container
             item
+            xs={6}
+            justifyContent="center"
+            style={style.gird}
+          >
+            <p style={style.p}>
+              The launch of 5,555 Handy Meta Girls NFT to whitelisted members
+              and to the public.
+            </p>
+          </Grid>
+          <Grid
+            container
+            item
             xs={4}
             justifyContent="center"
             style={style.gird}
           >
-            <Button variant="contained" color="error">
+            <Button
+              variant="contained"
+              color="error"
+              disabled={!userContext.connected}
+            >
               Mint Now
             </Button>
           </Grid>
