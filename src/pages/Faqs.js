@@ -95,7 +95,7 @@ export default function Faqs() {
               <Popover
                 num="05"
                 label="What will the mint price & supply be?"
-                description="The official supply of Handy Meta Girls will include a unique collection of 10,000 NFTs, with a minting price of 0.11 ETH!"
+                description="The official supply of Handy Meta Girls will include a unique collection of 5555 NFTs, with a minting price of TBA!"
               />
             </Grid>
           </Grid>
