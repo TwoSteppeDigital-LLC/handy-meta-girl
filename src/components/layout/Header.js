@@ -11,12 +11,9 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-<<<<<<< HEAD
 import UserContext from "../common/UserContext";
 import Wallet from "../common/Wallet";
 
-=======
->>>>>>> f492cff33a40ab5f4c6ec0d1bd84972c0e6581e2
 const style = {
   grid: {
     backgroundColor: "#FFD1D1",
