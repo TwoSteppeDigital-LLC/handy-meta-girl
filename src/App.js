@@ -14,6 +14,36 @@ import Footer from "./components/layout/Footer";
 import "./App.css";
 
 function App() {
+<<<<<<< HEAD
+  const [isMintPage, setIsMintPage] = useState(false);
+  const [connected, setConnected] = useState(false);
+
+  return (
+    <div>
+      <UserContext.Provider
+        value={{
+          isMintPage: isMintPage,
+          setIsMintPage: setIsMintPage,
+          connected: connected,
+          setConnected: setConnected,
+        }}
+      >
+        <Router>
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/faqs" element={<Faqs />} />
+            <Route path="/roadmap" element={<Roadmap />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/mint" element={<Mint />} />
+            <Route path="*" element={<NoPage />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </UserContext.Provider>
+=======
   return (
     <div>
       <Router>
@@ -29,6 +59,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
+>>>>>>> f492cff33a40ab5f4c6ec0d1bd84972c0e6581e2
     </div>
   );
 }

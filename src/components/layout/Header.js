@@ -11,6 +11,9 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
+import UserContext from "../common/UserContext";
+import Wallet from "../common/Wallet";
+
 const style = {
   grid: {
     backgroundColor: "#FFD1D1",
@@ -21,7 +24,16 @@ const style = {
 export default function SimpleBottomNavigation() {
   return (
     <Grid container justifyContent="center" style={style.grid}>
-      <Grid container item xs={11} sx={{ marginTop: "70px" }}>
+      <Grid
+        container
+        item
+        xs={11}
+        justifyContent="right"
+        sx={{ marginTop: "20px" }}
+      >
+        <Wallet />
+      </Grid>
+      <Grid container item xs={11} sx={{ marginTop: "10px" }}>
         <Grid container item xs={1} alignItems="center">
           <img alt="logo" src="../img/logo.jpg" />
         </Grid>
