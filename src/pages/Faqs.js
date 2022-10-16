@@ -4,8 +4,6 @@ import Grid from "@mui/material/Grid";
 import Grow from "@mui/material/Grow";
 
 import Popover from "../components/common/Popover";
-import { useOnceEffect } from "../components/common/CustomHook";
-import UserContext from "../components/common/UserContext";
 
 const style = {
   section: {
@@ -41,10 +39,6 @@ const style = {
 };
 
 export default function Faqs() {
-  const userContext = React.useContext(UserContext);
-  useOnceEffect(() => {
-    userContext.setIsMintPage(false);
-  }, []);
   return (
     <Grow in={true}>
       <section style={style.section}>
@@ -95,7 +89,7 @@ export default function Faqs() {
               <Popover
                 num="05"
                 label="What will the mint price & supply be?"
-                description="The official supply of Handy Meta Girls will include a unique collection of 5555 NFTs, with a minting price of TBA!"
+                description="The official supply of Handy Meta Girls will include a unique collection of 10,000 NFTs, with a minting price of 0.11 ETH!"
               />
             </Grid>
           </Grid>
