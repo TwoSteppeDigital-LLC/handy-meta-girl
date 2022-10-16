@@ -17,11 +17,12 @@ import Wallet from "../common/Wallet";
 const style = {
   grid: {
     backgroundColor: "#FFD1D1",
-    paddingBottom: "30px",
+    paddingBottom: "10px",
   },
 };
 
 export default function SimpleBottomNavigation() {
+  const userContext = React.useContext(UserContext);
   return (
     <Grid container justifyContent="center" style={style.grid}>
       <Grid
@@ -64,10 +65,22 @@ export default function SimpleBottomNavigation() {
             </Link>
           </Grid>
         </Grid>
-        <Grid container item xs={2} justifyContent={"center"}>
-          <Button variant="contained" color="error">
-            Mint Now
-          </Button>
+        <Grid
+          container
+          item
+          xs={2}
+          justifyContent={"center"}
+          alignItems="center"
+        >
+          {userContext.isMintPage ? (
+            <></>
+          ) : (
+            <Link to="/mint">
+              <Button variant="contained" color="error">
+                Mint Now
+              </Button>
+            </Link>
+          )}
         </Grid>
         <Grid
           container

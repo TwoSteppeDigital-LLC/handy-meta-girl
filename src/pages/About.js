@@ -5,7 +5,8 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Grow from "@mui/material/Grow";
 
-// import "./About.css";
+import { useOnceEffect } from "../components/common/CustomHook";
+import UserContext from "../components/common/UserContext";
 
 const style = {
   grid: {
@@ -38,6 +39,10 @@ const CustomButton = styled(Button)(() => ({
 }));
 
 export default function SimpleBottomNavigation() {
+  const userContext = React.useContext(UserContext);
+  useOnceEffect(() => {
+    userContext.setIsMintPage(false);
+  }, []);
   return (
     <Grow in={true}>
       <Grid container>

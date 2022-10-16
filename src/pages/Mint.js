@@ -975,7 +975,7 @@ export default function Contact() {
     getNftsOfCurrentWallet();
     if (!userContext.connected) {
       setMessage("You must connect the wallet");
-      console.log(1);
+      // console.log(1);
     } else if (nfts.length) setMessage("My NFT");
   }, [userContext.connected, tx, nfts]);
 

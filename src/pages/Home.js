@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import Grow from "@mui/material/Grow";
 
 import { useOnceEffect } from "../components/common/CustomHook";
+import UserContext from "../components/common/UserContext";
 
 import Faqs from "./Faqs";
 import Roadmap from "./Roadmap";
@@ -18,6 +19,12 @@ const toTimestamp = (strDate) => {
 };
 
 export default function Home() {
+  const userContext = React.useContext(UserContext);
+
+  useOnceEffect(() => {
+    userContext.setIsMintPage(false);
+  }, []);
+
   const end = toTimestamp("11/11/2022 11:11:00");
   const [days, setDays] = useState("");
   const [hours, setHours] = useState("");
