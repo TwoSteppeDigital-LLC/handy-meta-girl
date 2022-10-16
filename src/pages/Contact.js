@@ -9,6 +9,9 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
+import { useOnceEffect } from "../components/common/CustomHook";
+import UserContext from "../components/common/UserContext";
+
 const style = {
   section: {
     backgroundColor: "#FFE3E1",
@@ -26,6 +29,10 @@ const style = {
 };
 
 export default function Contact() {
+  const userContext = React.useContext(UserContext);
+  useOnceEffect(() => {
+    userContext.setIsMintPage(false);
+  }, []);
   return (
     <Grow in={true}>
       <section style={style.section}>
