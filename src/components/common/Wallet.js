@@ -87,7 +87,6 @@ export default function Wallet() {
   async function handleConnectWallet() {
     setLoading(true);
     if (userContext.connected) {
-      console.log(1);
       await requestDisconnection();
     } else {
       await requestConnection();
