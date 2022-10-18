@@ -1,165 +1,78 @@
 import * as React from "react";
+import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Typography from "@mui/material/Typography";
+
+import { IPFS_URL1, IPFS_URL2, IPFS_URL3 } from "../../utils/config";
 
 const style = {
-  backgroundColor: "rgba(0, 0, 0, 0.3)",
-  display: "block",
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  transition: "opacity .15s linear",
-  maxWidth: "500px",
-  width: "100%",
-  bgcolor: "background.paper",
+  width: 450,
+  bgcolor: "rgba(0, 0, 0, 0.7)",
+  border: "1px solid #fff",
   boxShadow: 24,
   p: 4,
-  borderRadius: "0.4rem",
-  border: "0",
-  overflowX: "hidden",
-  overflowY: "auto",
-  maxHeight: "calc(100vh - 75px)",
+  color: "#fff",
 };
 
-export default function CreateModal({
-  icon,
-  label,
-  handleChange,
-  handleAdd,
-  open,
-  setOpen,
-}) {
-  const handleOpen = () => setOpen(true);
+export default function TransitionsModal({ open, setOpen, id, address }) {
   const handleClose = () => setOpen(false);
+
   return (
     <div>
-      <Button
-        onClick={handleOpen}
-        className="btn btn-primary float-right text-white"
-      >
-        +<i className={icon}></i> <span>{label}</span>
-      </Button>
       <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
       >
-        <Box sx={style}>
-          <div className="modal-header">
-            <h5>Add new users</h5>
-            <button type="button" className="close" onClick={handleClose}>
-              &times;
-            </button>
-          </div>
-          <div>
-            <div className="col-sm-12">
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text ">
-                    <i className="fa fa-user"></i>
-                  </span>
-                </div>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="firstname"
-                  placeholder="Enter first name"
-                  onChange={handleChange}
-                />
-              </div>
-              <br />
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text ">
-                    <i className="fa fa-user"></i>
-                  </span>
-                </div>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="lastname"
-                  placeholder="Enter lastname"
-                  onChange={handleChange}
-                />
-              </div>
-              <br />
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text ">
-                    <i className="fa fa-user"></i>
-                  </span>
-                </div>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="username"
-                  placeholder="Enter staff name"
-                  onChange={handleChange}
-                />
-              </div>
-              <br />
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text ">
-                    <i className="fa fa-envelope"></i>
-                  </span>
-                </div>
-                <input
-                  type="email"
-                  className="form-control"
-                  name="email"
-                  placeholder="Enter user email address"
-                  onChange={handleChange}
-                />
-              </div>
-              <br />
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text ">
-                    <i className="fa fa-key"></i>
-                  </span>
-                </div>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  placeholder="Enter password"
-                  onChange={handleChange}
-                />
-              </div>
-              <br />
-              <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text ">
-                    <i className="fa fa-user"></i>
-                  </span>
-                </div>
-                <select
-                  name="role"
-                  className="form-control"
-                  onChange={handleChange}
-                  defaultValue={0}
-                >
-                  <option disabled>Select role</option>
-                  <option value="1">Support</option>
-                  <option value="2">Manager</option>
-                  <option value="3">Admin</option>
-                </select>
-              </div>
-              <br />
-              <div className="">
-                <br />
-                <button className="collb btn btn-info" onClick={handleAdd}>
-                  Add
-                </button>
-                <br />
-              </div>
-            </div>
-          </div>
-        </Box>
+        <Fade in={open}>
+          <Box sx={style}>
+            <Typography
+              id="transition-modal-title"
+              variant="h6"
+              component="h2"
+              textAlign="center"
+            >
+              Congratulations!
+            </Typography>
+            <Typography
+              id="transition-modal-description"
+              sx={{ mt: 2 }}
+              textAlign="center"
+            >
+              You have successfully mint NFT.
+            </Typography>
+            <br />
+            {id ? (
+              <img
+                alt="Your New NFT"
+                src={
+                  id <= 5447
+                    ? `${IPFS_URL1}${id}.png`
+                    : parseInt(id) <= 5547
+                    ? `${IPFS_URL2}${id - 5447}.png`
+                    : `${IPFS_URL3}${id - 5547}.png`
+                }
+                style={{ width: "100%" }}
+              />
+            ) : (
+              <></>
+            )}
+            <Typography textAlign="center">Token : #{parseInt(id)}</Typography>
+            <Typography textAlign="center">Owner : {address}</Typography>
+          </Box>
+        </Fade>
       </Modal>
     </div>
   );
