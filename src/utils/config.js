@@ -1,4 +1,4 @@
-export const CONTRACT_ADDRESS = "0x568f586e68847900e4f720d5033aaCba441781cb";
+export const CONTRACT_ADDRESS = "0x0097C8eEFe2df7D466d58b3B677dAB9618aF2DF7";
 
 export const IPFS_URL1 =
   "https://nftstorage.link/ipfs/bafybeicwckttgzbwgeqcyiufr2gr5mbhpndprrpkhangbjd6wxiyssfqxy/";
