@@ -85,7 +85,7 @@ export default function RoadMap() {
             <NftBlock
               image="02.png"
               title="Phase 2: Miss Handy"
-              description="We will conduct a contest of the most gorgeous and attractive women in her profession. Members can submit their entry on Handy Meta Girls website. We will announce 20 winners of the contest and it will be fairly  judged by the team and the community."
+              description="We will conduct a contest of the most gorgeous women and handsome men in their profession. Members can submit their entry on Handy Meta Girls discord server. We will announce a total of 6 winners of the contest and it will be fairly judged by the team and the community."
             />
             <NftBlock
               image="03.png"
@@ -93,18 +93,23 @@ export default function RoadMap() {
               description="We are developing a fashion dress-up game before the mint. This game is free-to-play for everyone and can use their cryptocurrency to buy upgrades, accessories and etc. But our NFT holders will receive various benefits such as special in-game rewards and bonuses. Coins earned from this game can be used to buy merchandise in our E-shop."
             />
             <NftBlock
-              image="05.png"
+              image="04.png"
               title="Phase 4: Primary Sales"
               description="The launch of 5,555 Handy Meta Girls NFT to whitelisted members and to the public."
             />
             <NftBlock
+              image="05.png"
+              title="Phase 5: Launching of E-shop"
+              description="We will be launching our official E-shop wherein everyone could buy Handy Meta Girls merchandise remotely. Coins earned from our game may be used to purchase items. Holders will also be able to enjoy exclusive discounts."
+            />
+            <NftBlock
               image="06.png"
-              title="Phase 5: Contest for the Best Clothes Design"
+              title="Phase 6: Contest for the Best Clothes Design"
               description="Members in the community can create or suggest new clothing designs for our Handy Meta Girls NFT. The best suggestions will be rewarded."
             />
             <NftBlock
               image="07.png"
-              title="Phase 6: Creation of Handy Meta Girls 2.0"
+              title="Phase 7: Creation of Handy Meta Girls 2.0"
               description="Based on the community's suggestions, we will create a 500 special edition of our NFT called Handy Meta Girls 2.0 where it will be transformed into a 3D design. The first 400 will be airdropped to those who suggested the designs. While the remaining 100 will be used for giveaways and for future partnerships. "
             />
           </Grid>
