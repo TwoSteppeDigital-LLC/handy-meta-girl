@@ -142,16 +142,19 @@ export default function Contact() {
         setMessage("My NFT");
         setNfts(tokenIds);
       } else {
-        if (cost % 10)
+        if (cost % 10) {
+          console.log(1);
           setMessage(
             `You are in WhiteList. So you can mint NFT with ${cost / 1000} eth.`
           );
-        else
+        } else {
+          console.log(2);
           setMessage(
             `You aren't in WhiteList. So you can mint NFT with ${
               cost / 1000
             } eth.`
           );
+        }
       }
     } catch (error) {
       console.log(error);
@@ -171,7 +174,7 @@ export default function Contact() {
 
       await contract.connect(signer).Mint(1, {
         value: ethers.utils.parseEther((cost / 1000).toString()),
-        gasLimit: "3000000",
+        gasLimit: "800000",
       });
       // var event = await contract.Transfer((err, res) => {
       //   if (!err) console.log(res);
