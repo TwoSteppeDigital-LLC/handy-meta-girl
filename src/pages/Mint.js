@@ -142,13 +142,11 @@ export default function Contact() {
         setMessage("My NFT");
         setNfts(tokenIds);
       } else {
-        if (cost % 10) {
-          console.log(1);
+        if (!cost % 9) {
           setMessage(
             `You are in WhiteList. So you can mint NFT with ${cost / 1000} eth.`
           );
         } else {
-          console.log(2);
           setMessage(
             `You aren't in WhiteList. So you can mint NFT with ${
               cost / 1000
