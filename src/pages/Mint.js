@@ -8,6 +8,10 @@ import Button from "@mui/material/Button";
 import { useOnceEffect } from "../components/common/CustomHook";
 import UserContext from "../components/common/UserContext";
 import Modal from "../components/common/Modal";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 import { ethers } from "ethers";
 import { hasEthereum } from "../utils/ethereum";
@@ -19,7 +23,6 @@ import {
   IPFS_URL3,
   TOTAL,
 } from "../utils/config";
-// import axios from "axios";
 
 const style = {
   section: {
@@ -77,7 +80,8 @@ export default function Contact() {
   const [message, setMessage] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [totalMinted, setTotalMinted] = React.useState(0);
-  // const [totalValue, setTotalValue] = React.useState(0);
+  const [isWL, setIsWL] = React.useState(false);
+  const [quantity, setQuantity] = React.useState(1);
 
   useOnceEffect(() => {
     userContext.setIsMintPage(true);
@@ -146,6 +150,7 @@ export default function Contact() {
           setMessage(
             `You are in WhiteList. So you can mint NFT with ${cost / 1000} eth.`
           );
+          setIsWL(true);
         } else {
           setMessage(
             `You aren't in WhiteList. So you can mint NFT with ${
@@ -170,13 +175,10 @@ export default function Contact() {
       const signer = provider.getSigner();
       const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, provider);
 
-      await contract.connect(signer).Mint(1, {
-        value: ethers.utils.parseEther((cost / 1000).toString()),
+      await contract.connect(signer).Mint(quantity, {
+        value: ethers.utils.parseEther(((cost / 1000) * quantity).toString()),
         gasLimit: "800000",
       });
-      // var event = await contract.Transfer((err, res) => {
-      //   if (!err) console.log(res);
-      // });
 
       contract.on("Transfer", (from, to, tokenId) => {
         setOwner(to);
@@ -196,6 +198,12 @@ export default function Contact() {
     //   window.location.protocol + "//" + window.location.hostname + ":3004";
     // axios.post("/api/mintsignin");
   };
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setQuantity(e.target.value);
+  };
+
   return (
     <Grow in={true}>
       <section style={style.section}>
@@ -247,6 +255,24 @@ export default function Contact() {
             justifyContent="center"
             style={style.gird}
           >
+            <FormControl sx={{ m: 1, minWidth: 80 }} error>
+              <InputLabel id="demo-simple-select-error-label">
+                Quantity
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-error-label"
+                id="demo-simple-select-error"
+                value={quantity}
+                label="Quantity"
+                onChange={handleChange}
+                disabled={!userContext.connected || loading || isWL}
+                style={{ height: "30px" }}
+              >
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+              </Select>
+            </FormControl>
             <Button
               variant="contained"
               color="error"
