@@ -10,6 +10,7 @@ import SailingIcon from "@mui/icons-material/Sailing";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 import UserContext from "../common/UserContext";
 import Wallet from "../common/Wallet";
@@ -90,6 +91,14 @@ export default function SimpleBottomNavigation() {
           alignItems="center"
           spacing={2}
         >
+          <IconButton
+            variant="text"
+            color="error"
+            href="https://handymetagirls.gitbook.io/whitepaper/"
+            target="_blank"
+          >
+            <AssignmentIndIcon/>
+          </IconButton>
           <IconButton
             variant="text"
             color="error"
