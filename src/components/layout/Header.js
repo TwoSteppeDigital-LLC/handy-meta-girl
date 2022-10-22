@@ -96,8 +96,9 @@ export default function SimpleBottomNavigation() {
             color="error"
             href="https://handymetagirls.gitbook.io/whitepaper/"
             target="_blank"
+            size='small'
           >
-            <AssignmentIndIcon/>
+            WHITEPAPER
           </IconButton>
           <IconButton
             variant="text"
