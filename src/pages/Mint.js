@@ -34,13 +34,15 @@ const style = {
   },
   h2: {
     color: "#ad333c",
-    font: "normal normal normal 30px/1.35em 'rozha one', serif",
+    fontSize: "30px",
+    lineHeight: "1.35em",
     textAlign: "center",
     marginBottom: 0,
   },
   h1: {
     color: "#d32f2f",
-    font: "normal normal normal 40px/1.35em 'rozha one', serif",
+    fontSize: "35px",
+    lineHeight: "1.35em",
     textAlign: "center",
     margin: 0,
   },
@@ -256,7 +258,7 @@ export default function Contact() {
             style={style.gird}
           >
             <FormControl sx={{ m: 1, minWidth: 80 }} error>
-              <InputLabel id="demo-simple-select-error-label">
+              <InputLabel id="demo-simple-select-error-label" style={{fontFamily: "Montserrat"}}>
                 Quantity
               </InputLabel>
               <Select
@@ -266,7 +268,7 @@ export default function Contact() {
                 label="Quantity"
                 onChange={handleChange}
                 disabled={!userContext.connected || loading || isWL}
-                style={{ height: "30px" }}
+                style={{ fontFamily: "Montserrat", height: "30px" }}
               >
                 <MenuItem value={1}>1</MenuItem>
                 <MenuItem value={2}>2</MenuItem>
@@ -278,6 +280,7 @@ export default function Contact() {
               color="error"
               disabled={!userContext.connected || loading}
               onClick={handleClick}
+              style={{ fontFamily: "Montserrat" }}
             >
               Mint Now ({cost / 1000} eth)
             </Button>
