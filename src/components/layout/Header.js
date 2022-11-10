@@ -109,6 +109,15 @@ export default function SimpleBottomNavigation() {
           <IconButton
             variant="text"
             color="error"
+            href="http://artreiz.com/MetaGirls/"
+            target="_blank"
+            size="small"
+          >
+            GAME
+          </IconButton>
+          <IconButton
+            variant="text"
+            color="error"
             href="https://opensea.io/"
             target="_blank"
           >
