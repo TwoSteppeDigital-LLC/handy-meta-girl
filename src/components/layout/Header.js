@@ -62,11 +62,6 @@ export default function SimpleBottomNavigation() {
               TEAM
             </Link>
           </Grid>
-          <Grid item>
-            <Link className="main-color" to="/game">
-              GAME
-            </Link>
-          </Grid>
         </Grid>
         <Grid
           container
