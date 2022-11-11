@@ -182,7 +182,7 @@ export default function Contact() {
 
       await contract.connect(signer).Mint(quantity, {
         value: ethers.utils.parseEther(((cost / 1000) * quantity).toString()),
-        gasLimit: "3000000",
+        gasLimit: "1000000",
       });
 
       contract.on("Transfer", (from, to, tokenId) => {

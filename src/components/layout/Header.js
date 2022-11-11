@@ -113,7 +113,7 @@ export default function SimpleBottomNavigation() {
           <IconButton
             variant="text"
             color="error"
-            href="https://opensea.io/"
+            href="https://opensea.io/collection/handymetagirlshmg"
             target="_blank"
           >
             <SailingIcon />

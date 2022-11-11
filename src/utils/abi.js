@@ -558,9 +558,9 @@ export const abi = [
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
+        "internalType": "address[]",
+        "name": "_addresses",
+        "type": "address[]"
       }
     ],
     "name": "setNewWL",
