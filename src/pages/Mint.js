@@ -141,6 +141,7 @@ export default function Contact() {
       const address = await signer.getAddress();
       // For each token owned, get the tokenId
       const tokenIds = await contract.tokensOfOwner(address);
+      console.log(tokenIds);
       let cost = await contract.price(address);
       cost = parseInt(cost) / 1000000000000000;
       setCost(cost);
@@ -155,8 +156,7 @@ export default function Contact() {
           setIsWL(true);
         } else {
           setMessage(
-            `You aren't in WhiteList. So you can mint NFT with ${
-              cost / 1000
+            `You aren't in WhiteList. So you can mint NFT with ${cost / 1000
             } eth.`
           );
         }
@@ -258,7 +258,7 @@ export default function Contact() {
             style={style.gird}
           >
             <FormControl sx={{ m: 1, minWidth: 80 }} error>
-              <InputLabel id="demo-simple-select-error-label" style={{fontFamily: "Montserrat"}}>
+              <InputLabel id="demo-simple-select-error-label" style={{ fontFamily: "Montserrat" }}>
                 Quantity
               </InputLabel>
               <Select
@@ -309,8 +309,8 @@ export default function Contact() {
                       parseInt(nft) <= 5447
                         ? `${IPFS_URL1}${parseInt(nft)}.png`
                         : parseInt(nft) <= 5547
-                        ? `${IPFS_URL2}${parseInt(nft) - 5447}.png`
-                        : `${IPFS_URL3}${parseInt(nft) - 5547}.png`
+                          ? `${IPFS_URL2}${parseInt(nft) - 5447}.png`
+                          : `${IPFS_URL3}${parseInt(nft) - 5547}.png`
                     }
                     style={style.nftImage}
                   />

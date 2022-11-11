@@ -25,7 +25,7 @@ export default function Home() {
     userContext.setIsMintPage(false);
   }, []);
 
-  const end = toTimestamp("11/11/2022 11:11:00");
+  const end = 1668161460;
   const [days, setDays] = useState("");
   const [hours, setHours] = useState("");
   const [mins, setMins] = useState("");
