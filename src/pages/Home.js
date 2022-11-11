@@ -11,6 +11,7 @@ import Faqs from "./Faqs";
 import Roadmap from "./Roadmap";
 import Contact from "./Contact";
 
+import { MINT_TIME } from "../utils/config";
 import "./Home.css";
 
 const toTimestamp = (strDate) => {
@@ -25,7 +26,7 @@ export default function Home() {
     userContext.setIsMintPage(false);
   }, []);
 
-  const end = 1668161460;
+  const end = MINT_TIME;
   const [days, setDays] = useState("");
   const [hours, setHours] = useState("");
   const [mins, setMins] = useState("");

@@ -22,6 +22,7 @@ import {
   IPFS_URL2,
   IPFS_URL3,
   TOTAL,
+  MINT_TIME
 } from "../utils/config";
 
 const style = {
@@ -73,6 +74,8 @@ const style = {
 
 export default function Contact() {
   const userContext = React.useContext(UserContext);
+
+  console.log(Date.now(), MINT_TIME)
 
   const [open, setOpen] = React.useState(false);
   const [tokenId, setTokenId] = React.useState(0);
@@ -278,7 +281,7 @@ export default function Contact() {
             <Button
               variant="contained"
               color="error"
-              disabled={!userContext.connected || loading}
+              disabled={!userContext.connected || loading || Date.now() / 1000 <= MINT_TIME}
               onClick={handleClick}
               style={{ fontFamily: "Montserrat" }}
             >
@@ -323,6 +326,6 @@ export default function Contact() {
         </Grid>
         {/* </Grid> */}
       </section>
-    </Grow>
+    </Grow >
   );
 }
