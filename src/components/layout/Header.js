@@ -10,6 +10,7 @@ import SailingIcon from "@mui/icons-material/Sailing";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 
 import UserContext from "../common/UserContext";
 import Wallet from "../common/Wallet";
@@ -35,10 +36,7 @@ export default function SimpleBottomNavigation() {
         <Wallet />
       </Grid>
       <Grid container item xs={11} sx={{ marginTop: "10px" }}>
-        <Grid container item xs={1} alignItems="center">
-          <img alt="logo" src="../img/logo.jpg" />
-        </Grid>
-        <Grid container item xs={4} spacing={2} alignItems="center">
+        <Grid container item xs={5} spacing={2} alignItems="center">
           <Grid item>
             <Link className="main-color" to="/home">
               HOME
@@ -76,7 +74,11 @@ export default function SimpleBottomNavigation() {
             <></>
           ) : (
             <Link to="/mint">
-              <Button variant="contained" color="error">
+              <Button
+                variant="contained"
+                color="error"
+                style={{ fontFamily: "Montserrat" }}
+              >
                 Mint Now
               </Button>
             </Link>
@@ -93,7 +95,25 @@ export default function SimpleBottomNavigation() {
           <IconButton
             variant="text"
             color="error"
-            href="https://opensea.io/"
+            href="https://handymetagirls.gitbook.io/whitepaper/"
+            target="_blank"
+            size="small"
+          >
+            WHITEPAPER
+          </IconButton>
+          <IconButton
+            variant="text"
+            color="error"
+            href="http://artreiz.com/MetaGirls/"
+            target="_blank"
+            size="small"
+          >
+            GAME
+          </IconButton>
+          <IconButton
+            variant="text"
+            color="error"
+            href="https://opensea.io/collection/handymetagirlshmg"
             target="_blank"
           >
             <SailingIcon />

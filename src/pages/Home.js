@@ -11,6 +11,7 @@ import Faqs from "./Faqs";
 import Roadmap from "./Roadmap";
 import Contact from "./Contact";
 
+import { MINT_TIME } from "../utils/config";
 import "./Home.css";
 
 const toTimestamp = (strDate) => {
@@ -25,17 +26,19 @@ export default function Home() {
     userContext.setIsMintPage(false);
   }, []);
 
-  const end = toTimestamp("11/11/2022 11:11:00");
+  const end = MINT_TIME;
   const [days, setDays] = useState("");
   const [hours, setHours] = useState("");
   const [mins, setMins] = useState("");
   const [secs, setSecs] = useState("");
 
   useOnceEffect(() => {
-    const intervalId = setInterval(() => {
-      remainTime(end - Math.trunc(Date.now() / 1000));
-    }, 1000);
-    return () => clearInterval(intervalId);
+    // if (end >= Math.trunc(Date.now() / 1000)) {
+    //   const intervalId = setInterval(() => {
+    //     remainTime(end - Math.trunc(Date.now() / 1000));
+    //   }, 1000);
+    //   return () => clearInterval(intervalId);
+    // }
   }, []);
 
   const remainTime = (seconds) => {
@@ -80,7 +83,7 @@ export default function Home() {
               </Grid>
             </Grid>
           </Grid>
-          <Grid container className="time-grid">
+          {/* <Grid container className="time-grid">
             <div className="time-box">
               <div className="days">
                 <div className="time-number time-block-label">{days}</div>
@@ -102,7 +105,7 @@ export default function Home() {
                 <div className="time-text time-block-label">Secs</div>
               </div>
             </div>
-          </Grid>
+          </Grid> */}
         </section>
         <section>
           <Grid container className="main-content">

@@ -8,6 +8,10 @@ import Button from "@mui/material/Button";
 import { useOnceEffect } from "../components/common/CustomHook";
 import UserContext from "../components/common/UserContext";
 import Modal from "../components/common/Modal";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 import { ethers } from "ethers";
 import { hasEthereum } from "../utils/ethereum";
@@ -18,8 +22,8 @@ import {
   IPFS_URL2,
   IPFS_URL3,
   TOTAL,
+  MINT_TIME
 } from "../utils/config";
-// import axios from "axios";
 
 const style = {
   section: {
@@ -31,13 +35,15 @@ const style = {
   },
   h2: {
     color: "#ad333c",
-    font: "normal normal normal 30px/1.35em 'rozha one', serif",
+    fontSize: "30px",
+    lineHeight: "1.35em",
     textAlign: "center",
     marginBottom: 0,
   },
   h1: {
     color: "#d32f2f",
-    font: "normal normal normal 40px/1.35em 'rozha one', serif",
+    fontSize: "35px",
+    lineHeight: "1.35em",
     textAlign: "center",
     margin: 0,
   },
@@ -69,6 +75,8 @@ const style = {
 export default function Contact() {
   const userContext = React.useContext(UserContext);
 
+  console.log(Date.now(), MINT_TIME)
+
   const [open, setOpen] = React.useState(false);
   const [tokenId, setTokenId] = React.useState(0);
   const [owner, setOwner] = React.useState("none");
@@ -77,7 +85,8 @@ export default function Contact() {
   const [message, setMessage] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const [totalMinted, setTotalMinted] = React.useState(0);
-  // const [totalValue, setTotalValue] = React.useState(0);
+  const [isWL, setIsWL] = React.useState(false);
+  const [quantity, setQuantity] = React.useState(1);
 
   useOnceEffect(() => {
     userContext.setIsMintPage(true);
@@ -135,6 +144,7 @@ export default function Contact() {
       const address = await signer.getAddress();
       // For each token owned, get the tokenId
       const tokenIds = await contract.tokensOfOwner(address);
+      console.log(tokenIds);
       let cost = await contract.price(address);
       cost = parseInt(cost) / 1000000000000000;
       setCost(cost);
@@ -142,16 +152,17 @@ export default function Contact() {
         setMessage("My NFT");
         setNfts(tokenIds);
       } else {
-        if (cost % 10)
+        if (!cost % 9) {
           setMessage(
             `You are in WhiteList. So you can mint NFT with ${cost / 1000} eth.`
           );
-        else
+          setIsWL(true);
+        } else {
           setMessage(
-            `You aren't in WhiteList. So you can mint NFT with ${
-              cost / 1000
+            `You aren't in WhiteList. So you can mint NFT with ${cost / 1000
             } eth.`
           );
+        }
       }
     } catch (error) {
       console.log(error);
@@ -169,13 +180,10 @@ export default function Contact() {
       const signer = provider.getSigner();
       const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, provider);
 
-      await contract.connect(signer).Mint(1, {
-        value: ethers.utils.parseEther((cost / 1000).toString()),
-        gasLimit: "3000000",
+      await contract.connect(signer).Mint(quantity, {
+        value: ethers.utils.parseEther(((cost / 1000) * quantity).toString()),
+        gasLimit: "1000000",
       });
-      // var event = await contract.Transfer((err, res) => {
-      //   if (!err) console.log(res);
-      // });
 
       contract.on("Transfer", (from, to, tokenId) => {
         setOwner(to);
@@ -195,6 +203,12 @@ export default function Contact() {
     //   window.location.protocol + "//" + window.location.hostname + ":3004";
     // axios.post("/api/mintsignin");
   };
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setQuantity(e.target.value);
+  };
+
   return (
     <Grow in={true}>
       <section style={style.section}>
@@ -246,11 +260,30 @@ export default function Contact() {
             justifyContent="center"
             style={style.gird}
           >
+            <FormControl sx={{ m: 1, minWidth: 80 }} error>
+              <InputLabel id="demo-simple-select-error-label" style={{ fontFamily: "Montserrat" }}>
+                Quantity
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-error-label"
+                id="demo-simple-select-error"
+                value={quantity}
+                label="Quantity"
+                onChange={handleChange}
+                disabled={!userContext.connected || loading || isWL}
+                style={{ fontFamily: "Montserrat", height: "30px" }}
+              >
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+              </Select>
+            </FormControl>
             <Button
               variant="contained"
               color="error"
-              disabled={!userContext.connected || loading}
+              disabled={!userContext.connected || loading || Date.now() / 1000 <= MINT_TIME}
               onClick={handleClick}
+              style={{ fontFamily: "Montserrat" }}
             >
               Mint Now ({cost / 1000} eth)
             </Button>
@@ -279,8 +312,8 @@ export default function Contact() {
                       parseInt(nft) <= 5447
                         ? `${IPFS_URL1}${parseInt(nft)}.png`
                         : parseInt(nft) <= 5547
-                        ? `${IPFS_URL2}${parseInt(nft) - 5447}.png`
-                        : `${IPFS_URL3}${parseInt(nft) - 5547}.png`
+                          ? `${IPFS_URL2}${parseInt(nft) - 5447}.png`
+                          : `${IPFS_URL3}${parseInt(nft) - 5547}.png`
                     }
                     style={style.nftImage}
                   />
@@ -293,6 +326,6 @@ export default function Contact() {
         </Grid>
         {/* </Grid> */}
       </section>
-    </Grow>
+    </Grow >
   );
 }

@@ -7,16 +7,19 @@ import Grid from "@mui/material/Grid";
 const style = {
   h1: {
     marginLeft: "30px",
-    font: "25px / 1.35em 'rozha one', serif",
+    fontSize: "25px",
+    lineHeight: "1.35em",
     color: "rgb(173, 51, 60)",
     textTransform: "none",
     fontWeight: "bold",
+    fontFamily: "Montserrat"
   },
   box: {
     width: 130,
     height: 105,
     color: "rgb(173, 51, 60)",
-    font: "50px / 1.375em 'rozha one, serif",
+    fontSize: "50px",
+    lineHeight: "1.35em",
     backgroundColor: "rgba(173, 51, 60, 0.15)",
     "&:hover": {
       backgroundColor: "primary.main",
@@ -30,7 +33,8 @@ const style = {
     fontWeight: "bold",
   },
   des: {
-    font: "18px / 1.75em avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif",
+    fontSize: "18px",
+    lineHeight: "1.75em",
     marginLeft: "100px",
   },
 };

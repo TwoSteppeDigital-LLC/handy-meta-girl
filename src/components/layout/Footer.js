@@ -12,7 +12,8 @@ const style = {
   h1: {
     fontWeight: "bold",
     color: "#ad333c",
-    font: "normal normal normal 22px/1.41em 'rozha one', serif",
+    fontSize: "22px",
+    lineHeight: "1.41em",
     margin: "auto",
     textAlign: "center",
   },

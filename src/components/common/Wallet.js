@@ -102,6 +102,7 @@ export default function Wallet() {
       color="error"
       onClick={handleConnectWallet}
       disabled={message === "Install MetaMask"}
+      style={{ fontFamily: "Montserrat" }}
     >
       {!loading ? (
         <>

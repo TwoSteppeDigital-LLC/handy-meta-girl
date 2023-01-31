@@ -27,7 +27,8 @@ const style = {
     marginBottom: "40px",
     fontWeight: "bold",
     color: "#ad333c",
-    font: "normal normal normal 56px/1.41em 'rozha one', serif",
+    fontSize: "56px",
+    lineHeight: "1.41em",
     textAlign: "center",
   },
   span: {
@@ -36,8 +37,8 @@ const style = {
     padding: 0,
     background: "transparent",
     lineHeight: "1.8em",
+    fontSize: "18px",
     textAlign: "center",
-    font: "normal normal normal 18px/1.75em avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif",
   },
   img: {
     marginLeft: "auto",
@@ -52,12 +53,14 @@ const style = {
     textAlign: "center",
     width: "100%",
     height: "70px",
-    font: "normal normal normal 20px/1.34em 'rozha one', serif",
+    fontSize: "18px",
+    lineHeight: "1.34em"
   },
   p: {
     textAlign: "center",
     color: "#ad333c",
-    font: "normal normal normal 16px/1.75em avenir-lt-w01_35-light1475496, avenir-lt-w05_35-light, sans-serif",
+    fontSize: "15px",
+    lineHeight: "1.75em"
   },
 };
 
@@ -122,7 +125,7 @@ export default function RoadMap() {
 const NftBlock = ({ image, title, description }) => {
   return (
     <Grid container item xs={4} justifyContent="center" style={style.box}>
-      <Grid item xs={6}>
+      <Grid item xs={8}>
         <img alt={image} src={`../img/${image}`} style={style.img} />
         <h2 style={style.h2}>{title}</h2>
         <p style={style.p}>{description}</p>

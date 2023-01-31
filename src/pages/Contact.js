@@ -22,7 +22,9 @@ const style = {
   },
   h1: {
     color: "#ad333c",
-    font: "normal normal normal 40px/1.35em 'rozha one', serif",
+    fontSize: "40px",
+    lineHeight: "1.35em",
+    fontWeight: "100",
     textAlign: "center",
     marginBottom: 0,
   },

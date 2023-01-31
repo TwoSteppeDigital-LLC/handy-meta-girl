@@ -7,6 +7,7 @@ import Faqs from "./pages/Faqs";
 import Roadmap from "./pages/Roadmap";
 import Contact from "./pages/Contact";
 import Mint from "./pages/Mint";
+import Game from "./pages/Game";
 import NoPage from "./components/common/NoPage";
 
 import Header from "./components/layout/Header";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/roadmap" element={<Roadmap />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/mint" element={<Mint />} />
+            <Route path="/game" element={<Game />} />
             <Route path="*" element={<NoPage />} />
           </Routes>
           <Footer />
